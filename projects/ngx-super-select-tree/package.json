@@ -5,6 +5,28 @@
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0"
   },
+  "author": {
+    "name": "Hesam Kashefi",
+    "url": "https://hesamkashefi.com"
+  },
+  "repository": {
+    "url": "https://github.com/HesamKashefi/ngx-super-select-tree"
+  },
+  "keywords": [
+    "NgxSuperSelectTree",
+    "ngx-super-select-tree",
+    "select",
+    "multi select",
+    "tree",
+    "multi choice",
+    "multiple choices",
+    "multi selection",
+    "multiple selection",
+    "selectbox",
+    "select search",
+    "select all",
+    "angular"
+  ],
   "dependencies": {
     "tslib": "^2.3.0"
   },

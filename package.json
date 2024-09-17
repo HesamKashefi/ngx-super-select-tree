@@ -4,10 +4,32 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "build": "ng build ngx-super-select-tree",
+    "watch": "ng build --watch --configuration development ngx-super-select-tree",
+    "test": "ng test ngx-super-select-tree"
   },
+  "author": {
+    "name": "Hesam Kashefi",
+    "url": "https://hesamkashefi.com"
+  },
+  "repository": {
+    "url": "https://github.com/HesamKashefi/ngx-super-select-tree"
+  },
+  "keywords": [
+    "NgxSuperSelectTree",
+    "ngx-super-select-tree",
+    "select",
+    "multi select",
+    "tree",
+    "multi choice",
+    "multiple choices",
+    "multi selection",
+    "multiple selection",
+    "selectbox",
+    "select search",
+    "select all",
+    "angular"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.1.0",
