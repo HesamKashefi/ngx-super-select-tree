@@ -1,30 +1,45 @@
-<div class="tree-dropdown">
-    @if(currentOpenParentItem) {
-    <button type="button"
-            style="align-self: self-start;"
-            (click)="goBack()">
-        &lt;
-    </button>
-    }
-    <div class="tree-dropdown-items">
-        @for(item of getCurrentParentChildren(); track item[valuePropertyName]) {
-        <div class="tree-item">
-            <button type="button"
-                    [disabled]="!hasChildren(item)"
-                    (click)="openItem(item)">
-                &gt;
-            </button>
-            <div>
-
-                <input type="checkbox"
-                       [checked]="isChecked(item)"
-                       (change)="onCheckChanged(item)">
-
-                <span>
-                    {{ item[displayPropertyName] }}
-                </span>
-            </div>
+<div (click)="$event.stopPropagation();">
+    <div class="tree-main-ui"
+         (click)="isDropDownOpen = !isDropDownOpen">
+        <div class="selected-values">
+            @for(selection of getSelectedItemsDisplayPropertyValues(); track selection) {
+            <span>
+                {{ selection }}
+            </span>
+            }
         </div>
-        }
     </div>
+
+    @if(isDropDownOpen) {
+    <div class="tree-dropdown">
+        @if(currentOpenParentItem) {
+        <button type="button"
+                style="align-self: self-start;"
+                (click)="goBack()">
+            &lt;
+        </button>
+        }
+        <div class="tree-dropdown-items">
+            @for(item of getCurrentParentChildren(); track item[valuePropertyName]) {
+            <div class="tree-item">
+                <button type="button"
+                        [disabled]="!hasChildren(item)"
+                        (click)="openItem(item)">
+                    &gt;
+                </button>
+                <div>
+
+                    <input type="checkbox"
+                           [checked]="isChecked(item)"
+                           (change)="onCheckChanged(item)">
+
+                    <span>
+                        {{ item[displayPropertyName] }}
+                    </span>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+    }
 </div>

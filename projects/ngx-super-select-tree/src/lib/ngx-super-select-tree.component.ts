@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'NgxSuperSelectTree',
@@ -38,6 +38,13 @@ export class NgxSuperSelectTreeComponent {
   @Output()
   selectedValuesChanged = new EventEmitter<any[]>();
 
+  @HostListener('window:click', ['$event'])
+  windowClicked(e: any) {
+    this.isDropDownOpen = false;
+  }
+
+
+  isDropDownOpen = false;
   currentOpenParentItem?: any;
 
   getCurrentParentChildren() {
@@ -70,6 +77,14 @@ export class NgxSuperSelectTreeComponent {
     const index = this.selectedValues.findIndex(x => x === value);
 
     return index >= 0;
+  }
+
+  getSelectedItems() {
+    return this.dataSource.filter(x => this.isChecked(x));
+  }
+
+  getSelectedItemsDisplayPropertyValues() {
+    return this.dataSource.filter(x => this.isChecked(x)).map(x => x[this.displayPropertyName]);
   }
 
   navigationStack: any[] = [];
