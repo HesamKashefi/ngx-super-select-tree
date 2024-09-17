@@ -1,6 +1,6 @@
 <div (click)="$event.stopPropagation();">
     <div class="tree-main-ui"
-         (click)="isDropDownOpen = !isDropDownOpen">
+         (click)="toggleDropDown()">
 
         @if(selectedValues.length === 0) {
         <p>{{ placeholder }}</p>

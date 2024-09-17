@@ -1,7 +1,10 @@
-<NgxSuperSelectTree [dataSource]="dataSource"
-                    [displayPropertyName]="'name'"
-                    [valuePropertyName]="'id'"
-                    [parentIdPropertyName]="'parentId'"
-                    (selectedValuesChanged)="onSelectedValuesChanged($event)">
+<form [formGroup]="form">
+    <NgxSuperSelectTree formControlName="selectedValues"
+                        [dataSource]="dataSource"
+                        [displayPropertyName]="'name'"
+                        [valuePropertyName]="'id'"
+                        [parentIdPropertyName]="'parentId'"
+                        (selectedValuesChanged)="onSelectedValuesChanged($event)">
 
-</NgxSuperSelectTree>
+    </NgxSuperSelectTree>
+</form>

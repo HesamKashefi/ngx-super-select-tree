@@ -1,14 +1,31 @@
-import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'NgxSuperSelectTree',
   standalone: true,
-  imports: [
-  ],
+  imports: [],
   templateUrl: './ngx-super-select-tree.component.html',
-  styleUrls: [`./ngx-super-select-tree.component.scss`]
+  styleUrls: [`./ngx-super-select-tree.component.scss`],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgxSuperSelectTreeComponent), multi: true }],
 })
-export class NgxSuperSelectTreeComponent {
+export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
+  _onChange: any;
+  _onTouched: any;
+  isDisabled = false;
+
+  writeValue(obj: any): void {
+    this.selectedValues = obj
+  }
+  registerOnChange(fn: any): void {
+    this._onChange = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this._onTouched = fn;
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    this.isDisabled = isDisabled;
+  }
 
   @Input({ required: true })
   dataSource: any[] = [];
@@ -50,6 +67,14 @@ export class NgxSuperSelectTreeComponent {
   isDropDownOpen = false;
   currentOpenParentItem?: any;
 
+  toggleDropDown() {
+    if (this.isDisabled) {
+      this.isDropDownOpen = false;
+      return;
+    }
+    this.isDropDownOpen = !this.isDropDownOpen;
+  }
+
   getCurrentParentChildren() {
     const currentParentId = this.currentOpenParentItem ? this.currentOpenParentItem[this.parentIdReferenceKeyPropertyName || this.valuePropertyName] : undefined;
 
@@ -70,8 +95,10 @@ export class NgxSuperSelectTreeComponent {
 
   onCheckChanged(item: any) {
     this.checkChanged(item);
+    this._onTouched();
 
     this.selectedValuesChanged.emit(this.selectedValues);
+    this._onChange(this.selectedValues);
   }
 
   isChecked(item: any) {

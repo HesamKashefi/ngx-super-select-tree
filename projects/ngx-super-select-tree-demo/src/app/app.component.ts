@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgxSuperSelectTreeComponent } from '../../../ngx-super-select-tree/src/public-api';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export interface DataItem { id: number, name: string, parentId?: number };
 
@@ -8,6 +9,9 @@ export interface DataItem { id: number, name: string, parentId?: number };
   selector: 'app-root',
   standalone: true,
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
+
     RouterOutlet,
     NgxSuperSelectTreeComponent
   ],
@@ -15,6 +19,11 @@ export interface DataItem { id: number, name: string, parentId?: number };
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  form = new FormGroup({
+    selectedValues: new FormControl([2])
+  });
+
+
   dataSource: DataItem[] = [
     { id: 1, name: 'one' },
 
@@ -29,5 +38,7 @@ export class AppComponent {
 
   onSelectedValuesChanged(selectedValues: any[]) {
     console.log(selectedValues);
+    console.log(this.form.value);
+
   }
 }
