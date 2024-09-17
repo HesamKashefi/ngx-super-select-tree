@@ -61,6 +61,8 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
   @HostListener('window:click', ['$event'])
   windowClicked(e: any) {
     this.isDropDownOpen = false;
+    this.currentOpenParentItem = undefined;
+    this.navigationStack = [];
   }
 
 
