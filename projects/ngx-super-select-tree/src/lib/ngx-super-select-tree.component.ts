@@ -1,11 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgxTreeItemComponent } from './ngx-tree-item/ngx-tree-item.component';
 
 @Component({
   selector: 'NgxSuperSelectTree',
   standalone: true,
   imports: [
-    NgxTreeItemComponent
   ],
   templateUrl: './ngx-super-select-tree.component.html',
   styleUrls: [`./ngx-super-select-tree.component.scss`]
