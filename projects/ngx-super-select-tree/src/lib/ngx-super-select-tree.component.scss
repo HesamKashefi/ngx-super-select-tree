@@ -1,0 +1,32 @@
+.tree-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    .tree-dropdown-items {
+
+        .tree-item {
+            &:nth-child(even) {
+                background-color: rgb(221, 221, 221);
+            }
+
+            display: flex;
+            gap: 0.5em;
+            align-items: center;
+            padding: 0.7em 0;
+        }
+
+    }
+}
+
+button {
+    background-color: transparent;
+    border: 1px solid gainsboro;
+    cursor: pointer;
+}
+
+input[type='checkbox'] {
+    cursor: pointer;
+
+    background-color: red;
+}
