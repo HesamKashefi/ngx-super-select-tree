@@ -26,4 +26,8 @@ export class AppComponent {
 
     { id: 6, name: 'Three' },
   ];
+
+  onSelectedValuesChanged(selectedValues: any[]) {
+    console.log(selectedValues);
+  }
 }

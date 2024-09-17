@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgxTreeItemComponent } from './ngx-tree-item/ngx-tree-item.component';
 
 @Component({
@@ -37,6 +37,9 @@ export class NgxSuperSelectTreeComponent {
   @Input()
   selectedValues: any[] = [];
 
+  @Output()
+  selectedValuesChanged = new EventEmitter<any[]>();
+
   currentOpenParentItem?: any;
 
   getCurrentParentChildren() {
@@ -60,13 +63,17 @@ export class NgxSuperSelectTreeComponent {
   onCheckChanged(item: any) {
     const value = item[this.valuePropertyName];
 
-    const index = this.selectedValues.findIndex(x => x === value);
+    const selectedValues = this.selectedValues;
+
+    const index = selectedValues.findIndex(x => x === value);
     if (index >= 0) {
-      this.selectedValues.splice(index, 1);
+      selectedValues.splice(index, 1);
     }
     else {
-      this.selectedValues.push(value);
+      selectedValues.push(value);
     }
+
+    this.selectedValuesChanged.emit(selectedValues);
   }
 
   isChecked(item: any) {

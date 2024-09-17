@@ -1,6 +1,7 @@
 <NgxSuperSelectTree [dataSource]="dataSource"
                     [displayPropertyName]="'name'"
                     [valuePropertyName]="'id'"
-                    [parentIdPropertyName]="'parentId'">
+                    [parentIdPropertyName]="'parentId'"
+                    (selectedValuesChanged)="onSelectedValuesChanged($event)">
 
 </NgxSuperSelectTree>

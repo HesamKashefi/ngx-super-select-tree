@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build ngx-super-select-tree",
     "watch": "ng build --watch --configuration development ngx-super-select-tree",
     "test": "ng test ngx-super-select-tree"
