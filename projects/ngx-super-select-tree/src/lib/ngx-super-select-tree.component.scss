@@ -24,11 +24,18 @@
 
 .tree-main-ui {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
     min-height: 2rem;
     border-radius: 0.5em;
     border: 1px solid gray;
+    padding: .5rem;
     cursor: pointer;
+
+    p {
+        margin: 0 1rem !important;
+        color: gray;
+    }
 
     .selected-values {
         display: flex;

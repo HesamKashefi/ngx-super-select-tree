@@ -35,6 +35,9 @@ export class NgxSuperSelectTreeComponent {
   @Input()
   selectedValues: any[] = [];
 
+  @Input()
+  placeholder: string = 'select';
+
   @Output()
   selectedValuesChanged = new EventEmitter<any[]>();
 

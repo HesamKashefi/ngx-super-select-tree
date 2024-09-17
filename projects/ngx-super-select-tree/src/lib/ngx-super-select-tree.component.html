@@ -1,6 +1,10 @@
 <div (click)="$event.stopPropagation();">
     <div class="tree-main-ui"
          (click)="isDropDownOpen = !isDropDownOpen">
+
+        @if(selectedValues.length === 0) {
+        <p>{{ placeholder }}</p>
+        }
         <div class="selected-values">
             @for(selection of getSelectedItemsDisplayPropertyValues(); track selection) {
             <span>
