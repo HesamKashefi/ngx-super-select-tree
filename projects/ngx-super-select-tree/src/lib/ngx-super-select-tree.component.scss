@@ -63,7 +63,7 @@
 
         p {
             margin: 0 1rem !important;
-            color: gray;
+            color: var(--text-color-light);
         }
 
         .selected-values {
@@ -118,7 +118,7 @@
 
         .tree-main-ui {
             p {
-                color: red;
+                color: var(--text-color-dark);
             }
 
             .selected-values {
