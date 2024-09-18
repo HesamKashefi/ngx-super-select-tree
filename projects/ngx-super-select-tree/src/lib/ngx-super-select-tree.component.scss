@@ -2,6 +2,9 @@
     --text-color-dark: #fff;
     --text-color-light: #000000;
 
+    --shadow-color-dark: #383838;
+    --shadow-color-light: #d7d7d7;
+
     --text-secondary-color-dark: #dfdfdf;
     --text-secondary-color-light: #4d4d4d;
 
@@ -36,7 +39,11 @@
         top: 100%;
         right: 0;
         z-index: 10;
+
+        overflow: hidden;
         border-radius: 4px;
+        box-shadow: 0 0 2px 2px var(--shadow-color-light);
+        background-color: var(--bg-color-light);
 
         display: flex;
         flex-direction: column;
@@ -97,8 +104,15 @@
     button {
         background-color: transparent;
         border: 1px solid gainsboro;
+        border-radius: 0.4em;
         cursor: pointer;
         color: var(--text-color-light);
+        padding: 0.5em;
+
+        &:disabled {
+            border: 1px solid var(--border-color-light);
+            color: var(--text-disabled-color-light);
+        }
     }
 
     input[type='checkbox'] {
@@ -115,6 +129,7 @@
 
         .tree-dropdown {
             background-color: var(--bg-color-dark);
+            box-shadow: 0 0 2px 2px var(--shadow-color-dark);
 
             .tree-dropdown-items {
 
@@ -145,6 +160,11 @@
 
         button {
             color: var(--text-color-dark);
+
+            &:disabled {
+                border-color: var(--border-color-dark);
+                color: var(--text-disabled-color-dark);
+            }
         }
     }
 }

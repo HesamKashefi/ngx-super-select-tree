@@ -108,10 +108,16 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
 
   onCheckChanged(item: any) {
     this.checkChanged(item);
-    this._onTouched();
+
+    if (this._onTouched) {
+      this._onTouched();
+    }
 
     this.selectedValuesChanged.emit(this.selectedValues);
-    this._onChange(this.selectedValues);
+
+    if (this._onChange) {
+      this._onChange(this.selectedValues);
+    }
   }
 
   isChecked(item: any) {
