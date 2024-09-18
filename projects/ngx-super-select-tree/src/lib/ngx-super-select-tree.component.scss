@@ -19,11 +19,25 @@
 }
 
 .tree-super-select {
+    border-radius: 4px;
+    border: 1px solid var(--border-color-light);
     color: var(--text-color-light);
     background-color: var(--bg-color-light);
     user-select: none;
+    position: relative;
+
+    &.open {
+        min-width: 300px;
+    }
 
     .tree-dropdown {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        right: 0;
+        z-index: 10;
+        border-radius: 4px;
+
         display: flex;
         flex-direction: column;
         gap: 0.5em;
@@ -56,8 +70,6 @@
         align-items: center;
         gap: 0.5rem;
         min-height: 2rem;
-        border-radius: 0.5em;
-        border: 1px solid gray;
         padding: .5rem;
         cursor: pointer;
 
@@ -99,6 +111,7 @@
     &.tree-super-select {
         color: var(--text-color-dark);
         background-color: var(--bg-color-dark);
+        border-color: var(--border-color-dark);
 
         .tree-dropdown {
             background-color: var(--bg-color-dark);

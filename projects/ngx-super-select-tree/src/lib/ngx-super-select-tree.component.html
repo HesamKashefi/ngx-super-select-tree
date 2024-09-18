@@ -1,6 +1,7 @@
 <div class="tree-super-select"
-     (click)="$event.stopPropagation();"
-     [class.dark]="enableDarkMode">
+     [class.dark]="enableDarkMode"
+     [class.open]="isDropDownOpen"
+     (click)="$event.stopPropagation();">
     <div class="tree-main-ui"
          (click)="toggleDropDown()">
 

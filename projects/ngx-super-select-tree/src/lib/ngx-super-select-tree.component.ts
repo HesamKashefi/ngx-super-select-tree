@@ -2,6 +2,10 @@ import { NgClass } from '@angular/common';
 import { Component, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
+function copyArray(value: any[]): any[] {
+  return [...value];
+};
+
 @Component({
   selector: 'NgxSuperSelectTree',
   standalone: true,
@@ -52,8 +56,9 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
   @Input()
   parentIdReferenceKeyPropertyName?: string;
 
-  @Input()
+  @Input({ transform: copyArray })
   selectedValues: any[] = [];
+
 
   @Input()
   placeholder: string = 'select';
