@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+    - name: Read the Docs
+      url: https://github.com/HesamKashefi/ngx-super-select-tree
+      about: Be sure you've read the docs!
+    - name: Checkout The Demo
+      url: https://stackblitz.com/edit/ngxsuperselecttree-demo
+      about: Have you seen the Demo?
