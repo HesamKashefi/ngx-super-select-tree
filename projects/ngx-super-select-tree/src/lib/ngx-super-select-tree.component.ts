@@ -1,10 +1,13 @@
+import { NgClass } from '@angular/common';
 import { Component, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'NgxSuperSelectTree',
   standalone: true,
-  imports: [],
+  imports: [
+    NgClass
+  ],
   templateUrl: './ngx-super-select-tree.component.html',
   styleUrls: [`./ngx-super-select-tree.component.scss`],
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgxSuperSelectTreeComponent), multi: true }],
@@ -54,6 +57,9 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
 
   @Input()
   placeholder: string = 'select';
+
+  @Input()
+  enableDarkMode: boolean = false;
 
   @Output()
   selectedValuesChanged = new EventEmitter<any[]>();

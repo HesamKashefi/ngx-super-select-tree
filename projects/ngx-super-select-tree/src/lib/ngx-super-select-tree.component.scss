@@ -1,65 +1,137 @@
-.tree-dropdown {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    padding: 1rem;
-    background-color: rgb(247, 247, 247);
+* {
+    --text-color-dark: #fff;
+    --text-color-light: #000000;
 
-    .tree-dropdown-items {
+    --text-secondary-color-dark: #dfdfdf;
+    --text-secondary-color-light: #4d4d4d;
 
-        .tree-item {
-            &:nth-child(even) {
-                background-color: rgb(238, 238, 238);
+    --text-disabled-color-dark: #8c8c8c;
+    --text-disabled-color-light: #8c8c8c;
+
+    --border-color-dark: #505050;
+    --border-color-light: #bebebe;
+
+    --bg-color-dark: #222222;
+    --bg-color-light: rgb(247, 247, 247);
+
+    --bg-secondary-color-dark: #3b3b3b;
+    --bg-secondary-color-light: #ececec;
+}
+
+.tree-super-select {
+    color: var(--text-color-light);
+    background-color: var(--bg-color-light);
+    user-select: none;
+
+    .tree-dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        padding: 1rem;
+        background-color: var(--bg-color-light);
+
+        .tree-dropdown-items {
+
+            .tree-item-container {
+                &:nth-child(even) {
+                    background-color: var(--bg-secondary-color-light);
+                }
+
+                .tree-item {
+                    cursor: pointer;
+                }
+
+                display: flex;
+                gap: 0.5em;
+                align-items: center;
+                padding: 0.7em;
+                background-color: transparent;
             }
 
-            display: flex;
-            gap: 0.5em;
-            align-items: center;
-            padding: 0.7em;
-            background-color: transparent;
         }
-
-    }
-}
-
-.tree-main-ui {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    min-height: 2rem;
-    border-radius: 0.5em;
-    border: 1px solid gray;
-    padding: .5rem;
-    cursor: pointer;
-
-    p {
-        margin: 0 1rem !important;
-        color: gray;
     }
 
-    .selected-values {
+    .tree-main-ui {
         display: flex;
         align-items: center;
-        flex-wrap: wrap;
         gap: 0.5rem;
-        padding: 0 1em;
+        min-height: 2rem;
+        border-radius: 0.5em;
+        border: 1px solid gray;
+        padding: .5rem;
+        cursor: pointer;
 
-        span {
-            border-radius: 0.2em;
-            background-color: rgb(236, 236, 236);
-            padding: 0.2em 0.5em;
+        p {
+            margin: 0 1rem !important;
+            color: gray;
         }
+
+        .selected-values {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0 1em;
+
+            span {
+                border-radius: 0.2em;
+                background-color: rgb(236, 236, 236);
+                background-color: var(--bg-secondary-color-light);
+                padding: 0.2em 0.5em;
+            }
+        }
+    }
+
+    button {
+        background-color: transparent;
+        border: 1px solid gainsboro;
+        cursor: pointer;
+        color: var(--text-color-light);
+    }
+
+    input[type='checkbox'] {
+        cursor: pointer;
     }
 }
 
-button {
-    background-color: transparent;
-    border: 1px solid gainsboro;
-    cursor: pointer;
-}
 
-input[type='checkbox'] {
-    cursor: pointer;
+.dark {
+    &.tree-super-select {
+        color: var(--text-color-dark);
+        background-color: var(--bg-color-dark);
 
-    background-color: red;
+        .tree-dropdown {
+            background-color: var(--bg-color-dark);
+
+            .tree-dropdown-items {
+
+                .tree-item-container {
+                    &:nth-child(even) {
+                        background-color: var(--bg-secondary-color-dark);
+                    }
+
+                    background-color: transparent;
+                }
+
+            }
+        }
+
+        .tree-main-ui {
+            p {
+                color: red;
+            }
+
+            .selected-values {
+
+                span {
+                    background-color: var(--bg-secondary-color-dark);
+                }
+            }
+        }
+
+
+        button {
+            color: var(--text-color-dark);
+        }
+    }
 }

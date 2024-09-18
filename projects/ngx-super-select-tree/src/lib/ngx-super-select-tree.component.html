@@ -1,4 +1,6 @@
-<div (click)="$event.stopPropagation();">
+<div class="tree-super-select"
+     (click)="$event.stopPropagation();"
+     [class.dark]="enableDarkMode">
     <div class="tree-main-ui"
          (click)="toggleDropDown()">
 
@@ -25,17 +27,16 @@
         }
         <div class="tree-dropdown-items">
             @for(item of getCurrentParentChildren(); track item[valuePropertyName]) {
-            <div class="tree-item">
+            <div class="tree-item-container">
                 <button type="button"
                         [disabled]="!hasChildren(item)"
                         (click)="openItem(item)">
                     &gt;
                 </button>
-                <div>
-
+                <div class="tree-item"
+                     (click)="onCheckChanged(item)">
                     <input type="checkbox"
-                           [checked]="isChecked(item)"
-                           (change)="onCheckChanged(item)">
+                           [checked]="isChecked(item)">
 
                     <span>
                         {{ item[displayPropertyName] }}
