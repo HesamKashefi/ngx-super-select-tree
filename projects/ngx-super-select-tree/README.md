@@ -1,24 +1,100 @@
 # NgxSuperSelectTree
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+This is a single/multiple choice drop down tree for Angular!
 
-## Code scaffolding
+---
+### [Live Demo on Stackblitz](https://stackblitz.com/edit/ngxsuperselecttree-demo)
 
-Run `ng generate component component-name --project ngx-super-select-tree` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-super-select-tree`.
-> Note: Don't forget to add `--project ngx-super-select-tree` or else it will be added to the default project in your `angular.json` file. 
+---
+## Features
 
-## Build
+* Multiple Selection Mode
+* Angular Forms Support
+* Dark Theme And Light Theme Support
 
-Run `ng build ngx-super-select-tree` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Publishing
+## Build Status
 
-After building your library with `ng build ngx-super-select-tree`, go to the dist folder `cd dist/ngx-super-select-tree` and run `npm publish`.
+|  Build |  NPM Publish  |
+|:---:|:---:|
+| [![Build](https://github.com/HesamKashefi/ngx-super-select-tree/actions/workflows/build.yml/badge.svg)](https://github.com/HesamKashefi/ngx-super-select-tree/actions/workflows/build.yml) | [![publish-npm-package](https://github.com/HesamKashefi/ngx-super-select-tree/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/HesamKashefi/ngx-super-select-tree/actions/workflows/npm-publish.yml) |
 
-## Running unit tests
 
-Run `ng test ngx-super-select-tree` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Install
 
-## Further help
+```
+> npm i ngx-super-select-tree
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Add Imports
+
+Import `NgxSuperSelectTreeComponent` like this:
+
+```
+
+  imports: [
+    NgxSuperSelectTreeComponent
+  ]
+
+```
+
+## Usage
+
+You can use it as simple as this:
+```
+<form [formGroup]="form">
+    <NgxSuperSelectTree formControlName="selectedValues"
+                        [dataSource]="dataSource"
+                        [displayPropertyName]="'name'"
+                        [valuePropertyName]="'id'"
+                        [parentIdPropertyName]="'parentId'"
+                        (selectedValuesChanged)="onSelectedValuesChanged($event)">
+
+    </NgxSuperSelectTree>
+</form>
+```
+
+in the .ts file:
+
+```
+
+export interface DataItem { id: number, name: string, parentId?: number };
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+
+    RouterOutlet,
+    NgxSuperSelectTreeComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+  form = new FormGroup({
+    selectedValues: new FormControl([2])
+  });
+
+
+  dataSource: DataItem[] = [
+    { id: 1, name: 'one' },
+
+    { id: 2, name: 'two' },
+
+    { id: 3, name: 'one - first', parentId: 1 },
+    { id: 4, name: 'one - second', parentId: 1 },
+    { id: 5, name: 'one - second - first', parentId: 4 },
+
+    { id: 6, name: 'Three' },
+  ];
+
+  onSelectedValuesChanged(selectedValues: any[]) {
+    console.log(selectedValues);
+    console.log(this.form.value);
+  }
+}
+
+```
