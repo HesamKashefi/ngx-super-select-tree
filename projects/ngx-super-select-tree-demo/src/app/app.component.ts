@@ -34,6 +34,11 @@ export class AppComponent {
     { id: 5, name: 'one - second - first', parentId: 4 },
 
     { id: 6, name: 'Three' },
+    { id: 7, name: 'Four' },
+    { id: 8, name: 'Five' },
+    { id: 9, name: 'Six' },
+    { id: 10, name: 'Seven' },
+    { id: 11, name: 'Eight' },
   ];
 
   onSelectedValuesChanged(selectedValues: any[]) {

@@ -8,11 +8,14 @@
     --text-secondary-color-dark: #dfdfdf;
     --text-secondary-color-light: #4d4d4d;
 
-    --text-disabled-color-dark: #8c8c8c;
-    --text-disabled-color-light: #8c8c8c;
+    --disabled-text-color-dark: #9b9b9b;
+    --disabled-text-color-light: #9c9c9c;
 
     --border-color-dark: #505050;
     --border-color-light: #bebebe;
+
+    --disabled-border-color-dark: #7e7e7e;
+    --disabled-border-color-light: #e7e7e7;
 
     --bg-color-dark: #222222;
     --bg-color-light: rgb(247, 247, 247);
@@ -103,15 +106,18 @@
 
     button {
         background-color: transparent;
-        border: 1px solid gainsboro;
+        border: 1px solid var(--border-color-light);
         border-radius: 0.4em;
         cursor: pointer;
         color: var(--text-color-light);
         padding: 0.5em;
+        font-weight: bold;
 
         &:disabled {
-            border: 1px solid var(--border-color-light);
-            color: var(--text-disabled-color-light);
+            font-weight: lighter;
+            cursor: unset;
+            border: 1px solid var(--disabled-border-color-light);
+            color: var(--disabled-text-color-light);
         }
     }
 
@@ -130,6 +136,8 @@
         .tree-dropdown {
             background-color: var(--bg-color-dark);
             box-shadow: 0 0 2px 2px var(--shadow-color-dark);
+            max-height: 40vh;
+            overflow-y: auto;
 
             .tree-dropdown-items {
 
@@ -162,8 +170,8 @@
             color: var(--text-color-dark);
 
             &:disabled {
-                border-color: var(--border-color-dark);
-                color: var(--text-disabled-color-dark);
+                border-color: var(--disabled-border-color-dark);
+                color: var(--disabled-text-color-dark);
             }
         }
     }
