@@ -43,7 +43,10 @@
         right: 0;
         z-index: 10;
 
-        overflow: hidden;
+
+        max-height: 40vh;
+        overflow-y: auto;
+
         border-radius: 4px;
         box-shadow: 0 0 2px 2px var(--shadow-color-light);
         background-color: var(--bg-color-light);
@@ -94,6 +97,8 @@
             flex-wrap: wrap;
             gap: 0.5rem;
             padding: 0 1em;
+            overflow-y: auto;
+            max-height: 2.5rem;
 
             span {
                 border-radius: 0.2em;
@@ -136,8 +141,6 @@
         .tree-dropdown {
             background-color: var(--bg-color-dark);
             box-shadow: 0 0 2px 2px var(--shadow-color-dark);
-            max-height: 40vh;
-            overflow-y: auto;
 
             .tree-dropdown-items {
 
