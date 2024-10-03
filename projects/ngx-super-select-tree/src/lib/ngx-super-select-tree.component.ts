@@ -113,6 +113,10 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
       this._onTouched();
     }
 
+    this.raiseSelectedValuesChanged();
+  }
+
+  private raiseSelectedValuesChanged() {
     this.selectedValuesChanged.emit(this.selectedValues);
 
     if (this._onChange) {
@@ -149,6 +153,12 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
     if (this.currentOpenParentItem !== undefined) [
       this.currentOpenParentItem = this.navigationStack.pop()
     ]
+  }
+
+  clearSelection() {
+    this.selectedValues = [];
+
+    this.raiseSelectedValuesChanged();
   }
 
   private selectAllDescendents(item: any) {

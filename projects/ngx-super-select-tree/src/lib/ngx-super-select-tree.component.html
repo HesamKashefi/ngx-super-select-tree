@@ -15,6 +15,12 @@
             </span>
             }
         </div>
+        @if(selectedValues.length !== 0) {
+        <button type="button"
+                (click)="$event.stopPropagation(); clearSelection()">
+            x
+        </button>
+        }
     </div>
 
     @if(isDropDownOpen) {
