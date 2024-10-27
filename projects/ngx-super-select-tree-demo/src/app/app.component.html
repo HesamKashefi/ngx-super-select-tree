@@ -7,16 +7,16 @@
                         (selectedValuesChanged)="onSelectedValuesChanged($event)">
 
     </NgxSuperSelectTree>
+
+    <h5>Dark</h5>
+
+    <NgxSuperSelectTree formControlName="selectedValues"
+                        [dataSource]="dataSource"
+                        [displayPropertyName]="'name'"
+                        [valuePropertyName]="'id'"
+                        [parentIdPropertyName]="'parentId'"
+                        [enableDarkMode]="true"
+                        (selectedValuesChanged)="onSelectedValuesChanged($event)">
+
+    </NgxSuperSelectTree>
 </form>
-
-<h5>Dark</h5>
-
-<NgxSuperSelectTree formControlName="selectedValues"
-                    [dataSource]="dataSource"
-                    [displayPropertyName]="'name'"
-                    [valuePropertyName]="'id'"
-                    [parentIdPropertyName]="'parentId'"
-                    [enableDarkMode]="true"
-                    (selectedValuesChanged)="onSelectedValuesChanged($event)">
-
-</NgxSuperSelectTree>

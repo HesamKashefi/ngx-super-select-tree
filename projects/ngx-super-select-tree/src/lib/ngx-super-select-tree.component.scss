@@ -57,6 +57,21 @@
         padding: 1rem;
         background-color: var(--bg-color-light);
 
+        input[type=search] {
+            width: calc(100% - 8px);
+            margin: 0 4px;
+            padding: .25rem .5rem;
+            font-size: .875rem;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+            font-weight: 400;
+            line-height: 1.5;
+
+            color: var(--text-color-light);
+            background-color: var(--bg-secondary-color-light);
+            border-color: var(--border-color-light);
+        }
+
         .tree-dropdown-items {
 
             .tree-item-container {
@@ -142,6 +157,12 @@
         .tree-dropdown {
             background-color: var(--bg-color-dark);
             box-shadow: 0 0 2px 2px var(--shadow-color-dark);
+
+            input[type=text] {
+                color: var(--text-color-dark);
+                background-color: var(--bg-secondary-color-dark);
+                border-color: var(--border-color-dark);
+            }
 
             .tree-dropdown-items {
 

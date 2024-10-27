@@ -32,8 +32,10 @@
             &lt;
         </button>
         }
+        <input type="search"
+               [(ngModel)]="searchText">
         <div class="tree-dropdown-items">
-            @for(item of getCurrentParentChildren(); track item[valuePropertyName]) {
+            @for(item of getItems(); track item[valuePropertyName]) {
             <div class="tree-item-container">
                 <button type="button"
                         [disabled]="!hasChildren(item)"

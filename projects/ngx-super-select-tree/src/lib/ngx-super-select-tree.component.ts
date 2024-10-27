@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
 function copyArray(value: any[]): any[] {
   return [...value];
@@ -10,7 +10,9 @@ function copyArray(value: any[]): any[] {
   selector: 'NgxSuperSelectTree',
   standalone: true,
   imports: [
-    NgClass
+    NgClass,
+    FormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './ngx-super-select-tree.component.html',
   styleUrls: [`./ngx-super-select-tree.component.scss`],
@@ -33,6 +35,8 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
   }
+
+  searchText = '';
 
   @Input({ required: true })
   dataSource: any[] = [];
@@ -86,6 +90,15 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
       return;
     }
     this.isDropDownOpen = !this.isDropDownOpen;
+  }
+
+  getItems() {
+    if (this.searchText.trim() === '') return this.getCurrentParentChildren();
+
+    return this.dataSource.filter(x => {
+      const v: string = x[this.displayPropertyName];
+      return v.trim().toLowerCase().indexOf(this.searchText.trim().toLowerCase()) >= 0;
+    });
   }
 
   getCurrentParentChildren() {
@@ -143,6 +156,8 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
   navigationStack: any[] = [];
 
   openItem(item: any) {
+    this.searchText = '';
+
     if (this.currentOpenParentItem) {
       this.navigationStack.push(this.currentOpenParentItem)
     }
@@ -188,5 +203,11 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
       selectedValues.push(value);
       this.selectAllDescendents(item);
     }
+  }
+
+
+  onSearchTextUpdated($event: Event) {
+    console.log($event);
+
   }
 }
