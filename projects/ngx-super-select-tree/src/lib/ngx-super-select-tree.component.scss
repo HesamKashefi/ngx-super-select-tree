@@ -81,6 +81,8 @@
 
                 .tree-item {
                     cursor: pointer;
+                    display: flex;
+                    align-items: center;
                 }
 
                 display: flex;
@@ -99,7 +101,7 @@
         justify-content: space-between;
         gap: 0.5rem;
         min-height: 2rem;
-        padding: .5rem;
+        padding: 0.2em 0.5em;
         cursor: pointer;
 
         p {
@@ -112,7 +114,6 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 0.5rem;
-            padding: 0 1em;
             overflow-y: auto;
             max-height: 2.5rem;
 
@@ -127,11 +128,9 @@
 
     button {
         background-color: transparent;
-        border: 1px solid var(--border-color-light);
-        border-radius: 0.4em;
+        border: none;
         cursor: pointer;
         color: var(--text-color-light);
-        padding: 0.5em;
         font-weight: bold;
 
         &:disabled {
