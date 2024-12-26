@@ -1,6 +1,6 @@
 {
   "name": "ngx-super-select-tree",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "peerDependencies": {
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0"

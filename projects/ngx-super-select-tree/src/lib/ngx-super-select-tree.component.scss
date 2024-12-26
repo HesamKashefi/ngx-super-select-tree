@@ -103,6 +103,7 @@
         gap: 0.5rem;
         min-height: 2rem;
         padding: 0.2em 0.5em;
+        height: 40px;
         cursor: pointer;
 
         p {
@@ -137,7 +138,6 @@
         &:disabled {
             font-weight: lighter;
             cursor: unset;
-            border: 1px solid var(--disabled-border-color-light);
             color: var(--disabled-text-color-light);
         }
     }
@@ -195,7 +195,6 @@
             color: var(--text-color-dark);
 
             &:disabled {
-                border-color: var(--disabled-border-color-dark);
                 color: var(--disabled-text-color-dark);
             }
         }
