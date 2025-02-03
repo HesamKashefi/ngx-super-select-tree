@@ -19,6 +19,8 @@ function copyArray(value: any[]): any[] {
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgxSuperSelectTreeComponent), multi: true }],
 })
 export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
+  private readonly id = new Date().getTime() * (Math.random() * 10);
+
   _onChange: any;
   _onTouched: any;
   isDisabled = false;
@@ -130,11 +132,11 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
   }
 
   private raiseSelectedValuesChanged() {
-    this.selectedValuesChanged.emit(this.selectedValues);
-
     if (this._onChange) {
       this._onChange(this.selectedValues);
     }
+
+    this.selectedValuesChanged.emit(this.selectedValues);
   }
 
   isChecked(item: any) {
@@ -170,8 +172,25 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
     ]
   }
 
+  selectVisibleItems() {
+    const items = this.getItems();
+    for (const element of items) {
+
+      const value = element[this.valuePropertyName];
+      const index = this.selectedValues.findIndex(x => x === value);
+      if (index < 0) {
+        this.selectedValues.push(value);
+      }
+    }
+
+    if (this._onTouched) {
+      this._onTouched();
+    }
+  }
+
   clearSelection() {
-    this.selectedValues = [];
+    while (this.selectedValues.length !== 0)
+      this.selectedValues.pop();
 
     this.raiseSelectedValuesChanged();
   }

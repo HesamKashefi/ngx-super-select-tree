@@ -35,6 +35,14 @@
         <input type="search"
                [(ngModel)]="searchText">
         <div class="tree-dropdown-items">
+
+
+            <button type="button"
+                    class="select-btn"
+                    (click)="selectVisibleItems()">
+                select visible items (without children)
+            </button>
+
             @for(item of getItems(); track item[valuePropertyName]) {
             <div class="tree-item-container">
                 <button type="button"
