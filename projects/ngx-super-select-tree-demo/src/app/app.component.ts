@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgxSuperSelectTreeComponent } from '../../../ngx-super-select-tree/src/public-api';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,11 +18,16 @@ export interface DataItem { id: number, name: string, parentId?: number };
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   form = new FormGroup({
     selectedValues: new FormControl([2])
   });
 
+  ngOnInit(): void {
+    this.form.valueChanges.subscribe(value => {
+      console.log('form updated', value);
+    })
+  }
 
   dataSource: DataItem[] = [
     { id: 1, name: 'one' },

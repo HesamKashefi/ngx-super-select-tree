@@ -183,6 +183,8 @@ export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
       }
     }
 
+    this.raiseSelectedValuesChanged();
+
     if (this._onTouched) {
       this._onTouched();
     }
