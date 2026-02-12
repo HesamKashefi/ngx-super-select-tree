@@ -6,17 +6,15 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 export interface DataItem { id: number, name: string, parentId?: number };
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-
-    RouterOutlet,
-    NgxSuperSelectTreeComponent
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        RouterOutlet,
+        NgxSuperSelectTreeComponent
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   form = new FormGroup({

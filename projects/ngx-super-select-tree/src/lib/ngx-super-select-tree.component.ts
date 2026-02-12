@@ -7,16 +7,15 @@ function copyArray(value: any[]): any[] {
 };
 
 @Component({
-  selector: 'NgxSuperSelectTree',
-  standalone: true,
-  imports: [
-    NgClass,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  templateUrl: './ngx-super-select-tree.component.html',
-  styleUrls: [`./ngx-super-select-tree.component.scss`],
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgxSuperSelectTreeComponent), multi: true }],
+    selector: 'NgxSuperSelectTree',
+    imports: [
+        NgClass,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    templateUrl: './ngx-super-select-tree.component.html',
+    styleUrls: [`./ngx-super-select-tree.component.scss`],
+    providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgxSuperSelectTreeComponent), multi: true }]
 })
 export class NgxSuperSelectTreeComponent implements ControlValueAccessor {
   private readonly id = new Date().getTime() * (Math.random() * 10);
