@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgxSuperSelectTreeComponent } from '../../../ngx-super-select-tree/src/public-api';
+import { NgxSuperSelectTreeComponent } from 'ngx-super-select-tree';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export interface DataItem { id: number, name: string, parentId?: number };
 
 @Component({
-    selector: 'app-root',
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        RouterOutlet,
-        NgxSuperSelectTreeComponent
-    ],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  selector: 'app-root',
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    RouterOutlet,
+    NgxSuperSelectTreeComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   form = new FormGroup({

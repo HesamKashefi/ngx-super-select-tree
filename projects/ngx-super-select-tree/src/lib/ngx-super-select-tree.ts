@@ -13,8 +13,8 @@ function copyArray(value: any[]): any[] {
         FormsModule,
         ReactiveFormsModule
     ],
-    templateUrl: './ngx-super-select-tree.component.html',
-    styleUrls: [`./ngx-super-select-tree.component.scss`],
+    templateUrl: './ngx-super-select-tree.html',
+    styleUrls: [`./ngx-super-select-tree.scss`],
     providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgxSuperSelectTreeComponent), multi: true }]
 })
 export class NgxSuperSelectTreeComponent implements ControlValueAccessor {

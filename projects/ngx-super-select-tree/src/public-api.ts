@@ -3,4 +3,4 @@
  */
 
 export * from './lib/ngx-super-select-tree.service';
-export * from './lib/ngx-super-select-tree.component';
+export * from './lib/ngx-super-select-tree';

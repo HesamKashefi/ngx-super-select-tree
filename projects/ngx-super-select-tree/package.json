@@ -1,10 +1,6 @@
 {
   "name": "ngx-super-select-tree",
   "version": "2.21.0",
-  "peerDependencies": {
-    "@angular/common": "^21.1.4",
-    "@angular/core": "^21.1.4"
-  },
   "author": {
     "name": "Hesam Kashefi",
     "url": "https://hesamkashefi.com"
@@ -27,6 +23,11 @@
     "select all",
     "angular"
   ],
+  "peerDependencies": {
+    "@angular/common": "^21.1.4",
+    "@angular/core": "^21.1.4",
+    "@angular/forms": "^21.1.4"
+  },
   "dependencies": {
     "tslib": "^2.3.0"
   },
